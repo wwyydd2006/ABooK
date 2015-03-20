@@ -1,0 +1,37 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!-- Hibernage 框架配置 -->
+<hibernate-configuration>
+    <session-factory>
+    
+        <!-- Database connection settings -->
+        <!-- 在配置文件中，前面的hibernate.可以省略 -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/abook</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">asdasd</property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+        <!-- SQL dialect -->
+        <!-- 指定数据库的方言，屏蔽不同数据库SQL语句的实现细节 -->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+		
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+        
+        <!-- 指定Hibernate应该能够处理哪些对象的持久化管理 -->
+        <!-- 告诉Hibernate要管理的对象其配置文件所在位置。从classpath开始，使用文件路径 -->
+        <mapping resource="com/Sixteen/entity/User.hbm.xml" />
+        
+    </session-factory>
+</hibernate-configuration>
