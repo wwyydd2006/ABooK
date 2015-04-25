@@ -62,7 +62,7 @@
 	<div class="LoginWindow">
 		<div>
 			<div class="login">
-				<form action="LoginServlet" method="POST">
+				<form action="LoginServlet" method="GET">
 					<p>
 						<input type="text" name="uname" id="uname" placeholder="用户名"
 							value="">
@@ -85,20 +85,20 @@
 
 	<div class="box">
 		<div class="regiest">
-			<form action="RegistServlet" method="POST">
+			<form action="RegistServlet" method="GET">
 				<p>
-					<input type="text" id="username" name="uname" placeholder="用户名">
+					<input type="text" id="username" name="uname" placeholder="用户名*">
 				</p>
 				<p>
 					<input type="text" id="nickname" name="unickname" placeholder="昵称">
 				</p>
 				<p>
 					<input type="password" id="password" name="upasswd"
-						placeholder="密码">
+						placeholder="密码*">
 				</p>
 				<p>
-					<input type="password" id="finalPWD" name="upasswd_check"
-						placeholder="确认密码">
+					<input type="password" id="finalpwd" name="upasswd_check"
+						placeholder="确认密码*">
 				</p>
 				<div id="btn2">
 					<ul>

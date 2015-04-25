@@ -31,7 +31,7 @@
         
         <!-- 指定Hibernate应该能够处理哪些对象的持久化管理 -->
         <!-- 告诉Hibernate要管理的对象其配置文件所在位置。从classpath开始，使用文件路径 -->
-        <mapping resource="com/Sixteen/entity/User.hbm.xml" />
+        <mapping resource="com/sixteen/entity/User.hbm.xml" />
         
     </session-factory>
 </hibernate-configuration>

@@ -18,5 +18,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Loging"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MySQL"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/DOM4J"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Struts"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

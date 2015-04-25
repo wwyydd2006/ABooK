@@ -9,18 +9,21 @@ import org.hibernate.cfg.Configuration;
 
 import com.sixteen.DAO.IUserDAO;
 import com.sixteen.entity.User;
+import com.sixteen.utils.SessionFactoryUtil;
 
 public class UserDAOImpl implements IUserDAO {
-
 	@Override
 	public boolean save(User user) {
 		// TODO Auto-generated method stub
 		Configuration configuration = new Configuration().configure();
-		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
-		StandardServiceRegistryImpl registryImpl = (StandardServiceRegistryImpl) builder.build();
-		SessionFactory sessionFactory = configuration.buildSessionFactory(registryImpl);
+		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
+				.applySettings(configuration.getProperties());
+		StandardServiceRegistryImpl registryImpl = (StandardServiceRegistryImpl) builder
+				.build();
+		SessionFactory sessionFactory = configuration
+				.buildSessionFactory(registryImpl);
 		Session session = sessionFactory.openSession();
-		Transaction transaction= session.getTransaction();
+		Transaction transaction = session.getTransaction();
 		transaction.begin();
 		session.save(user);
 		transaction.commit();
@@ -33,20 +36,13 @@ public class UserDAOImpl implements IUserDAO {
 	public User get(User user) {
 		// TODO Auto-generated method stub
 		User result;
-		Configuration configuration = new Configuration().configure();
-		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
-		StandardServiceRegistryImpl registryImpl = (StandardServiceRegistryImpl) builder.build();
-		SessionFactory sessionFactory = configuration.buildSessionFactory(registryImpl);
-		Session session = sessionFactory.openSession();
-		Transaction transaction= session.getTransaction();
+		Session session = SessionFactoryUtil.getSessionFactory().openSession();
+		Transaction transaction = session.getTransaction();
 		transaction.begin();
-		
 		result = (User) session.get(User.class, 1);
-		
 		transaction.commit();
 		session.close();
-		sessionFactory.close();
-		
+		SessionFactoryUtil.getSessionFactory().close();
 		return result;
 	}
 
